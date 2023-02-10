@@ -1,0 +1,11 @@
+--  using MySQL
+
+-- first, create a prepared statement with placeholders
+PREPARE stmt FROM "SELECT * FROM users WHERE id = ? AND name = ?";
+
+-- then, provide input for the placeholders as separate arguments
+SET @id = 5;
+SET @name = "Patrick Star";
+
+-- execute the prepared statement
+EXECUTE stmt USING @id, @name;
